@@ -1,12 +1,16 @@
 {
   "name": "vne",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A smarter .env",
   "author": "Paul Anthony Webb <paul@inc.sh>",
   "license": "UNLICENSED",
   "main": "index.js",
+  "repository": "https://git.inc.sh/NetOperatorWibby/vne",
   "engines": {
     "node": ">=9.2.0"
+  },
+  "keywords": {
+    "env"
   },
   "dependencies": {
     "app-root-path": "^2.0.1",
