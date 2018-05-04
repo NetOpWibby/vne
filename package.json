@@ -1,6 +1,6 @@
 {
   "name": "vne",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A smarter .env",
   "author": "Paul Anthony Webb <paul@inc.sh>",
   "license": "UNLICENSED",
@@ -9,9 +9,15 @@
   "engines": {
     "node": ">=9.2.0"
   },
-  "keywords": {
-    "env"
-  },
+  "keywords": [
+    "conf",
+		"config",
+		"configuration",
+    "env",
+		"environment",
+    "parse",
+		"settings"
+  ],
   "dependencies": {
     "app-root-path": "^2.0.1",
     "node-env-file": "^0.1.8"
