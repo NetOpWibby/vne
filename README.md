@@ -4,6 +4,8 @@
 
 > A clever .env
 
+`vne` is not yet compatible with `pnpm` (https://pnpm.js.org).
+
 
 
 ### Installation
