@@ -1,6 +1,6 @@
 {
   "name": "vne",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A smarter .env",
   "author": "Paul Anthony Webb <paul@inc.sh>",
   "license": "UNLICENSED",
@@ -11,16 +11,15 @@
   },
   "keywords": [
     "conf",
-		"config",
-		"configuration",
+    "config",
+    "configuration",
     "env",
-		"environment",
+    "environment",
     "parse",
-		"settings"
+    "settings"
   ],
   "dependencies": {
-    "app-root-path": "^2.0.1",
-    "node-env-file": "^0.1.8"
+    "pkg-require": "0.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

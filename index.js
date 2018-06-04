@@ -4,11 +4,11 @@
 
 //  P A C K A G E
 
-const efile = require("node-env-file");
+const pkgRequire = require("pkg-require")(__dirname);
 
 //  V A R I A B L E
 
-const _env = efile(require("app-root-path").resolve("/.env"));
+const _env = `${pkgRequire.root()}/.env`;
 
 
 
