@@ -19,7 +19,7 @@ $ npm i vne -S
 ### Usage
 
 ```javascript
-import env from "vne"; // const vne = require("vne"); works too
+import env from "vne"; // const env = require("vne"); works too
 
 console.log(env); // your .env file in object format
 ```
