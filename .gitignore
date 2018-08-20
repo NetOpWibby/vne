@@ -1,4 +1,6 @@
+# Files
 .DS_Store
 Thumbs.db
 
+# Folders
 node_modules
