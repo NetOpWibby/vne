@@ -21,20 +21,22 @@ const numberedStringRegex = /(\w+\d+)/g;
 const separatorRegex = /-|\./g;
 
 for (const variable in _env) {
-  if (variable.match(numberedStringRegex)) {
-    const cleanVariable = variable.replace(/\d+/g, ""); // remove numbers from variable name
+  const cleanVariable = variable.replace(/\d+/g, ""); // remove numbers from variable name
 
-    if (!defaultObject[cleanVariable]) defaultObject[cleanVariable] = []; // if array does not exist, create it
-    defaultObject[cleanVariable].push(_env[variable]);
-  }
+  switch(true) {
+    case (variable.match(numberedStringRegex)):
+      if (!defaultObject[cleanVariable]) defaultObject[cleanVariable] = []; // if array does not exist, create it
+      defaultObject[cleanVariable].push(_env[variable]);
+      break;
 
-  else if (variable.match(separatorRegex)) {
-    nestedObject[variable.split(separatorRegex)[0]] = nestedObject[variable.split(separatorRegex)[0]] || {};
-    nestedObject[variable.split(separatorRegex)[0]][variable.split(separatorRegex)[1]] = _env[variable];
-  }
+    case (variable.match(separatorRegex)):
+      nestedObject[variable.split(separatorRegex)[0]] = nestedObject[variable.split(separatorRegex)[0]] || {};
+      nestedObject[variable.split(separatorRegex)[0]][variable.split(separatorRegex)[1]] = _env[variable];
+      break;
 
-  else {
-    defaultObject[variable] = _env[variable];
+    default:
+      defaultObject[variable] = _env[variable];
+      break;
   }
 }
 

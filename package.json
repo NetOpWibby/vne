@@ -1,13 +1,21 @@
 {
-  "name": "vne",
-  "version": "1.0.7",
+  "author": {
+    "email": "paul@inc.sh",
+    "name": "Paul Anthony Webb"
+  },
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "node-env-file": "^0.1.8"
+  },
   "description": "A smarter .env",
-  "author": "Paul Anthony Webb <paul@inc.sh>",
-  "license": "UNLICENSED",
-  "main": "index.js",
-  "repository": "https://git.inc.sh/NetOperatorWibby/vne",
+  "devDependencies": {
+    "npm-run-all": "^4.1.3",
+    "snazzy": "^8.0.0",
+    "standardx": "^3.0.1",
+    "updates": "^4.3.0"
+  },
   "engines": {
-    "node": ">=9.2.0"
+    "node": ">=10.3.0"
   },
   "keywords": [
     "conf",
@@ -18,19 +26,17 @@
     "parse",
     "settings"
   ],
-  "dependencies": {
-    "app-root-path": "^2.1.0",
-    "node-env-file": "^0.1.8"
-  },
-  "devDependencies": {
-    "npm-run-all": "^4.1.3",
-    "snazzy": "^8.0.0",
-    "standardx": "^3.0.1",
-    "updates": "^4.3.0"
+  "license": "MIT",
+  "main": "index.js",
+  "name": "vne",
+  "repository": {
+    "type": "git",
+    "url": "https://git.inc.sh/NetOperatorWibby/vne"
   },
   "scripts": {
     "test": "run-s test:*",
     "test:dependencies": "updates -u ./",
     "test:lint": "standardx --verbose | snazzy"
-  }
+  },
+  "version": "1.1.0"
 }

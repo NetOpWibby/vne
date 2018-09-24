@@ -4,7 +4,7 @@
 
 > A clever .env
 
-`vne` is not _yet_ compatible with `pnpm` (https://pnpm.js.org).
+`vne` is not _yet_ compatible with [`pnpm`](https://pnpm.js.org).
 
 
 
