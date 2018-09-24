@@ -77,10 +77,10 @@ Other variables in your `.env` file with a `-` or `.` gets placed into a nested 
 ```javascript
 return new Promise((resolve, reject) => {
   request({
-    method: "POST",
-    url: process.env.NODE_ENV === "development" ? env.dev.api : env.prod.api, // BOOM
     body: {},
-    json: true
+    json: true,
+    method: "POST",
+    url: process.env.NODE_ENV === "development" ? env.dev.api : env.prod.api // BOOM
   }).then(body => {
     if (!body) return reject(body);
     resolve(body);
