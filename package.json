@@ -9,6 +9,7 @@
   },
   "description": "A smarter .env",
   "devDependencies": {
+    "husky": "^1.1.0",
     "npm-run-all": "^4.1.3",
     "snazzy": "^8.0.0",
     "standardx": "^3.0.1",
@@ -16,6 +17,11 @@
   },
   "engines": {
     "node": ">=10.3.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run test:lint"
+    }
   },
   "keywords": [
     "conf",
@@ -38,5 +44,5 @@
     "test:dependencies": "updates -u ./",
     "test:lint": "standardx --verbose | snazzy"
   },
-  "version": "1.2.0"
+  "version": "1.2.1"
 }
