@@ -6,7 +6,7 @@
 
 const efile = require("node-env-file");
 
-//  V A R I A B L E
+//  U T I L
 
 const _env = efile(require("app-root-path").resolve("/.env"));
 
