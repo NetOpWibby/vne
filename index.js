@@ -4,11 +4,11 @@
 
 //  P A C K A G E
 
-const efile = require("node-env-file");
+const getEnvironmentFile = require("node-env-file");
 
 //  U T I L
 
-const _env = efile(require("app-root-path").resolve("/.env"));
+const _env = getEnvironmentFile(require("app-root-path").resolve("/.env"));
 
 
 
@@ -20,7 +20,7 @@ const nestedObject = {};
 const numberedStringRegex = /(\w+\d+)/g;
 const separatorRegex = /-|\./g;
 
-for (const variable in _env) {
+_env.forEach(variable => {
   const cleanVariable = variable.replace(/\d+/g, ""); // remove numbers from variable name
 
   switch(true) {
@@ -28,7 +28,9 @@ for (const variable in _env) {
       variable.match(numberedStringRegex) &&
       variable.match(numberedStringRegex).length > 0
     ):
-      if (!defaultObject[cleanVariable]) defaultObject[cleanVariable] = []; // if array does not exist, create it
+      if (!defaultObject[cleanVariable])
+        defaultObject[cleanVariable] = []; // if array does not exist, create it
+
       defaultObject[cleanVariable].push(_env[variable]);
       break;
 
@@ -44,7 +46,7 @@ for (const variable in _env) {
       defaultObject[variable] = _env[variable];
       break;
   }
-}
+});
 
 
 
