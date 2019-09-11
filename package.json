@@ -4,18 +4,18 @@
     "name": "Paul Anthony Webb"
   },
   "dependencies": {
-    "app-root-path": "^2.1.0",
-    "node-env-file": "^0.1.8"
+    "app-root-path": "^2.2.1",
+    "env-smart": "^2.1.0"
   },
   "description": "A smarter .env",
   "devDependencies": {
-    "@inc/eslint-config": "^1.1.3",
-    "eslint": "^5.14.0",
-    "husky": "^1.3.1",
+    "@inc/eslint-config": "^2019.7.23",
+    "eslint": "^6.3.0",
+    "husky": "^3.0.5",
     "npm-run-all": "^4.1.5",
     "snazzy": "^8.0.0",
-    "standardx": "^3.0.1",
-    "updates": "^7.1.1"
+    "standardx": "^5.0.0",
+    "updates": "^9.0.0"
   },
   "engines": {
     "node": ">=10.3.0"
@@ -39,13 +39,13 @@
   "name": "vne",
   "repository": {
     "type": "git",
-    "url": "https://git.inc.sh/NetOperatorWibby/vne"
+    "url": "https://code.webb.page/vne"
   },
   "scripts": {
-    "format": "eslint '**/*.js' --fix",
+    "format": "eslint . --fix",
     "test": "run-s test:*",
-    "test:dependencies": "updates -u ./",
+    "test:dependencies": "updates --update ./",
     "test:lint": "standardx --verbose | snazzy"
   },
-  "version": "1.3.0"
+  "version": "2019.09.11"
 }

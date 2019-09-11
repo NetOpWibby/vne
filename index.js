@@ -4,21 +4,19 @@
 
 //  P A C K A G E
 
-const getEnvironmentFile = require("node-env-file");
+const { parseFile: efile } = require("env-smart");
 
-//  U T I L
+//  U T I L S
 
-const _env = getEnvironmentFile(require("app-root-path").resolve("/.env"));
+const _env = efile(require("app-root-path").resolve("/.env"));
+const defaultObject = {};
+const nestedObject = {};
+const numberedStringRegex = /(\w+\d+)/g;
+const separatorRegex = /-|\./g;
 
 
 
 //  P R O G R A M
-
-const defaultObject = {};
-const nestedObject = {};
-
-const numberedStringRegex = /(\w+\d+)/g;
-const separatorRegex = /-|\./g;
 
 _env.forEach(variable => {
   const cleanVariable = variable.replace(/\d+/g, ""); // remove numbers from variable name

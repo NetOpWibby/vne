@@ -1,17 +1,17 @@
 # vne
 
-[![N](https://img.shields.io/badge/%F0%9F%91%8D%F0%9F%8F%BE-NetOperatorWibby/vne-07d0eb.svg?style=flat-square)](https://git.inc.sh/NetOperatorWibby/vne)
+[![WebbHub](https://img.shields.io/badge/%F0%9F%95%B8-code.webb.page/vne-07d0eb.svg?style=flat-square)](https://code.webb.page/vne)
 
 > A clever .env
 
-`vne` is not _yet_ compatible with [`pnpm`](https://pnpm.js.org).
+`vne` now supports the typed variable syntax of [env-smart](https://github.com/jessety/env-smart)!
 
 
 
 ### Installation
 
 ```bash
-$ npm i vne -S
+$ npm i vne
 ```
 
 
@@ -19,9 +19,10 @@ $ npm i vne -S
 ### Usage
 
 ```javascript
-import env from "vne"; // const env = require("vne"); works too
+import env from "vne"; // ES6
+// const env = require("vne"); // ES5
 
-console.log(env); // your .env file in object format
+console.log(env); // your .env file as an Object
 ```
 
 
@@ -80,9 +81,13 @@ return new Promise((resolve, reject) => {
     body: {},
     json: true,
     method: "POST",
-    url: process.env.NODE_ENV === "development" ? env.dev.api : env.prod.api // BOOM
+    url: process.env.NODE_ENV === "development" ? // BOOM
+      env.dev.api :
+      env.prod.api
   }).then(body => {
-    if (!body) return reject(body);
+    if (!body)
+      return reject(body);
+
     resolve(body);
   }).catch(error => {
     resolve(error);
@@ -90,7 +95,7 @@ return new Promise((resolve, reject) => {
 });
 ```
 
-That one-liner checks to see if your app is running in a `development` environment or not (of course, this assumes that you are setting your environment when starting your app). Check out the `scripts` section of this [`package.json` file](https://git.inc.sh/NetOperatorWibby/express-boilerplate/src/branch/master/package.json) for reference.
+That one-liner checks to see if your app is running in a `development` environment or not (of course, this assumes that you are setting your environment when starting your app). Check out the `scripts` section of this [`package.json` file](https://code.webb.page/Starters/express-boilerplate/files/master/package.json) for reference.
 
 Anyhoo, if your app is running in `development` mode the parameter on the left side of the `:` will be called. If not (it's running in `production` mode), the parameter on the right side is called.
 
