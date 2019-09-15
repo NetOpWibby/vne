@@ -18,7 +18,7 @@ const separatorRegex = /-|\./g;
 
 //  P R O G R A M
 
-_env.forEach(variable => {
+Object.keys(_env).forEach(variable => {
   const cleanVariable = variable.replace(/\d+/g, ""); // remove numbers from variable name
 
   switch(true) {
