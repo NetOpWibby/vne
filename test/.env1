@@ -1,0 +1,14 @@
+tokens1="jumb1e-0f-num8er5-and-l3tt3r5"
+tokens2="l3tt3r5-and-jumb1e-0f-num8er5"
+
+portDatabase=55555
+serviceApi="jumb1e-0f-l3tt3r5-and-num8er5"
+
+dev-api="http://localhost:3000"
+prod-api="https://api.domain.tld"
+
+dev-app="http://localhost:3001"
+prod-app="https://app.domain.tld"
+
+dev-marketing="http://localhost:3002"
+prod-marketing="https://domain.tld"

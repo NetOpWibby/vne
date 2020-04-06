@@ -1,42 +1,50 @@
 # vne
 
-[![WebbHub](https://img.shields.io/badge/%F0%9F%95%B8-code.webb.page/vne-07d0eb.svg?style=flat-square)](https://code.webb.page/vne)
-
-> A clever .env
-
-`vne` now supports the typed variable syntax of [env-smart](https://github.com/jessety/env-smart)!
+> A clever .env (made clever-er with [env-smart](https://github.com/jessety/env-smart))
 
 
 
-### Installation
+## Install
 
-```bash
+```sh
 $ npm i vne
 ```
 
 
 
-### Usage
+## Usage
 
-```javascript
-import env from "vne"; // ES6
-// const env = require("vne"); // ES5
+```js
+import env from "vne";
 
-console.log(env); // your .env file as an Object
+// Your .env file, made more useful.
+// See example below.
+console.log(env());
 ```
 
 
 
-### Example
+## API
+
+### env(path?)
+#### path
+
+Type: `string` (optional)
+
+`vne` has two assumptions about your project: 1) your environment file has a filename of `.env` and 2) this file in the root of your project. If one of those assumptions are incorrect, you can specify an **absolute** `path` to your environment file and `vne` will use that.
+
+
+
+## Example
 
 Take this sample `.env` file:
 
 ```env
-tokens1="jumble-of-numbers-and-letters"
-tokens2="letters-and-jumble-of-numbers"
+tokens1="jumb1e-0f-num8er5-and-l3tt3r5"
+tokens2="l3tt3r5-and-jumb1e-0f-num8er5"
 
 portDatabase=55555
-serviceApi="jumble-of-letters-and-numbers"
+serviceApi="jumb1e-0f-l3tt3r5-and-num8er5"
 
 dev-api="http://localhost:3000"
 prod-api="https://api.domain.tld"
@@ -53,11 +61,11 @@ prod-marketing="https://domain.tld"
 ```json
 {
   tokens: [
-    "jumble-of-numbers-and-letters",
-    "letters-and-jumble-of-numbers"
+    "jumb1e-0f-num8er5-and-l3tt3r5",
+    "l3tt3r5-and-jumb1e-0f-num8er5"
   ],
   portDatabase: "55555",
-  serviceApi: "jumble-of-letters-and-numbers",
+  serviceApi: "jumb1e-0f-l3tt3r5-and-num8er5",
   dev: {
     api: "http://localhost:3000",
     app: "http://localhost:3001",
@@ -73,9 +81,9 @@ prod-marketing="https://domain.tld"
 
 Variables with names differentiated by numbers are intelligently placed into an array for easy iteration. A use case would be a handful of tokens you want to have admin access to your API.
 
-Other variables in your `.env` file with a `-` or `.` gets placed into a nested object for easy querying. That way, you will be able to do something like this (check the `url` parameter):
+Other variables in your `.env` file with a `-`, `.`, or `·` gets placed into a nested object for easy querying. That way, you will be able to do something like this (check the `url` parameter):
 
-```javascript
+```js
 return new Promise((resolve, reject) => {
   request({
     body: {},
@@ -100,3 +108,28 @@ That one-liner checks to see if your app is running in a `development` environme
 Anyhoo, if your app is running in `development` mode the parameter on the left side of the `:` will be called. If not (it's running in `production` mode), the parameter on the right side is called.
 
 Easy-peasy!
+
+
+
+## Tests
+
+```sh
+# Run all tests, sequentially
+$ npm test
+
+# Test dependencies for latest versions
+$ npm run test:dependencies
+
+# Lint "src" directory
+$ npm run test:typescript
+
+# Test this module
+$ npm run test:assert
+```
+
+
+
+## Related
+
+- [`@webb/order-object`](https://www.npmjs.com/package/@webb/order-object)
+- [`@webb/stringify-object`](https://www.npmjs.com/package/@webb/stringify-object)

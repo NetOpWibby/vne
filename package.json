@@ -1,28 +1,34 @@
 {
   "author": {
-    "email": "paul@inc.sh",
-    "name": "Paul Anthony Webb"
+    "name": "netop://ウエハ",
+    "url": "https://webb.page"
   },
   "dependencies": {
-    "app-root-path": "^2.2.1",
-    "env-smart": "^2.1.0"
+    "@webb/console": "^2020.3.29",
+    "app-root-path": "^3.0.0",
+    "env-smart": "^2.1.2"
   },
   "description": "A smarter .env",
   "devDependencies": {
-    "@inc/eslint-config": "^2019.7.23",
-    "eslint": "^6.3.0",
-    "husky": "^3.0.5",
+    "@inc/eslint-config": "^2019.10.22",
+    "@webb/config-nyc": "^2020.3.29",
+    "@webb/config-prettier": "^2020.3.29",
+    "@webb/test": "^2020.3.29",
+    "chronver": "^2020.3.9",
+    "del-cli": "^3.0.0",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
     "npm-run-all": "^4.1.5",
-    "snazzy": "^8.0.0",
-    "standardx": "^5.0.0",
-    "updates": "^9.0.0"
+    "nyc": "^15.0.1",
+    "prettier": "^2.0.3",
+    "ts-node": "^8.8.2",
+    "typescript": "^3.8.3",
+    "updates": "^10.2.6"
   },
-  "engines": {
-    "node": ">=10.3.0"
-  },
+  "homepage": "https://code.webb.page/vne",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run format && npm run test:lint && git add -A :/"
+      "pre-commit": "npm run build && npm run pretty && npm run increment && git add -A :/"
     }
   },
   "keywords": [
@@ -34,18 +40,25 @@
     "parse",
     "settings"
   ],
-  "license": "BSD-3-Clause",
-  "main": "index.js",
+  "license": "MIT",
+  "main": "dist/index.js",
   "name": "vne",
+  "prettier": "@webb/config-prettier",
   "repository": {
     "type": "git",
     "url": "https://code.webb.page/vne"
   },
   "scripts": {
-    "format": "eslint . --fix",
+    "build": "npm run cleanup && tsc",
+    "cleanup": "del './dist'",
+    "increment": "chronver --increment package",
+    "pretty": "prettier --write 'dist/**/*.js' 'dist/**/*.ts'",
     "test": "run-s test:*",
     "test:dependencies": "updates --update ./",
-    "test:lint": "standardx --verbose | snazzy"
+    "test:typescript": "tsc",
+    "test:assert": "ts-node test/index.ts",
+    "test:coverage": "nyc npm run test:assert"
   },
-  "version": "2019.09.14"
+  "types": "dist/index.d.ts",
+  "version": "2020.04.05"
 }

@@ -1,0 +1,6 @@
+{
+  "extends": "@webb/config-nyc",
+  "include": [
+    "test/index.ts"
+  ]
+}
