@@ -39,7 +39,7 @@ Type: `string` (optional)
 
 Take this sample `.env` file:
 
-```env
+```ini
 tokens1="jumb1e-0f-num8er5-and-l3tt3r5"
 tokens2="l3tt3r5-and-jumb1e-0f-num8er5"
 
@@ -58,7 +58,7 @@ prod-marketing="https://domain.tld"
 
 `vne` takes the `.env` file and produces an object like this:
 
-```json
+```javascript
 {
   tokens: [
     "jumb1e-0f-num8er5-and-l3tt3r5",
