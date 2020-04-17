@@ -60,5 +60,5 @@
     "test:coverage": "nyc npm run test:assert"
   },
   "types": "dist/index.d.ts",
-  "version": "2020.04.16.1"
+  "version": "2020.04.16"
 }
