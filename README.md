@@ -7,26 +7,26 @@
 ## Install
 
 ```sh
-$ npm i vne
+npm i vne
 ```
 
 
 
 ## Usage
 
-```js
-import env from "vne";
+```ts
+import { vne } from "vne"; // use the named export...
+import env from "vne";     // or, the default and name it whatever you want
 
 // Your .env file, made more useful.
-// See example below.
-console.log(env());
+console.log(vne()); // or, env();
 ```
 
 
 
 ## API
 
-### env(path?)
+### vne(path?)
 #### path
 
 Type: `string` (optional)
@@ -58,7 +58,7 @@ prod-marketing="https://domain.tld"
 
 `vne` takes the `.env` file and produces an object like this:
 
-```javascript
+```json
 {
   tokens: [
     "jumb1e-0f-num8er5-and-l3tt3r5",
@@ -81,31 +81,23 @@ prod-marketing="https://domain.tld"
 
 Variables with names differentiated by numbers are intelligently placed into an array for easy iteration. A use case would be a handful of tokens you want to have admin access to your API.
 
-Other variables in your `.env` file with a `-`, `.`, or `·` gets placed into a nested object for easy querying. That way, you will be able to do something like this (check the `url` parameter):
+Other variables in your `.env` file with a `-`, `.`, or `·` get placed into a nested object for easy querying. That way, you will be able to do something like this:
 
-```js
-return new Promise((resolve, reject) => {
-  request({
-    body: {},
-    json: true,
-    method: "POST",
-    url: process.env.NODE_ENV === "development" ? // BOOM
-      env.dev.api :
-      env.prod.api
-  }).then(body => {
-    if (!body)
-      return reject(body);
+```ts
+const { dev, prod } = vne();
 
-    resolve(body);
-  }).catch(error => {
-    resolve(error);
+try {
+  await request({
+    url: process.env.NODE_ENV === "development" ?
+      dev.api :
+      prod.api
   });
-});
+} catch(_) {
+  // handle error
+}
 ```
 
-That one-liner checks to see if your app is running in a `development` environment or not (of course, this assumes that you are setting your environment when starting your app). Check out the `scripts` section of this [`package.json` file](https://code.webb.page/Starters/express-boilerplate/files/master/package.json) for reference.
-
-Anyhoo, if your app is running in `development` mode the parameter on the left side of the `:` will be called. If not (it's running in `production` mode), the parameter on the right side is called.
+The above example checks to see if your app is running in a `development` environment (of course, this assumes that you are setting your environment when starting your app).
 
 Easy-peasy!
 
@@ -121,10 +113,10 @@ $ npm test
 $ npm run test:dependencies
 
 # Lint "src" directory
-$ npm run test:typescript
+$ npm run test:lint
 
 # Test this module
-$ npm run test:assert
+$ npm run test:lint-assert
 ```
 
 

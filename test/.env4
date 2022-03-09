@@ -1,0 +1,14 @@
+tokens1="jumb1e-0f-num8er5-and-l3tt3r5"
+tokens2="l3tt3r5-and-jumb1e-0f-num8er5"
+
+portDatabase=55555
+
+service·acme·sandbox·api="jumb1e-0f-l3tt3r5-and-num8er5"
+service·acme·production·api="jumb1e-0f-num8er5-and-l3tt3r5-and-w0rd5"
+
+server·dev·api="http://localhost:3000"
+server·prod·api="https://api.domain.tld"
+server·dev·app="http://localhost:3001"
+server·prod·app="https://app.domain.tld"
+server·dev·marketing="http://localhost:3002"
+server·prod·marketing="https://domain.tld"
